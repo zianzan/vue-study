@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 在指令中用到的数据，一定要在data中添加进来，否则在vue渲染的时候会报错 -->
+        <!-- {{pm}} -->
+
+        {{num}}
+        <button @click="num++">自加</button>
+
+        
+        <!-- <button v-on:click="btnClick($event)">按钮</button>
+        <button v-on:click="btnClick">按钮</button> -->
+    </div>
+
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        //1. 指令的概念？
+            //指令其实指的就是在html代码中新增的一些自定的属性，或者特定标签
+            //可以用来实现特殊的功能
+
+            // 比如:  {{}}  插值表达式  将数据中的内容拿出来展示到当前位置
+    
+            //      v-on    用来绑定事件的指令
+
+
+        
+        // 2. v-on的使用
+        //  功能： 绑定事件
+        //  语法： v-on:事件类型="函数名称"
+        //  上面的指令表达式中的函数名称，是要和vm对象中的methods对象中的方法进行匹配的
+        
+        // v-on指令有个简写的模式
+        //  直接将v-on:变成 @
+        // v-on:事件类型="函数名称"    @事件类型="函数名称"
+
+
+        // 注意：绑定事件的时候，不仅可以绑定函数名称，还可以绑定一些简单的表达式
+
+        // v-on:click="函数名()"
+        
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                pm: "",
+                num: 0
+            },
+            methods:{
+                btnClick: function(e){
+                    // alert(1);
+                    //事件对象的获取，如果在注册事件的时候，使用的是函数名称直接绑定的事件
+                    //那么，在事件处理函数被调用的时候，vue会默认的帮我们传入事件对象
+
+                    //但是如果绑定事件的时候，使用的函数调用的模式 "函数名()"
+                    //那么vue在调用这个函数的时候，就不会自动的传递事件对象进来了 
+                    //如果想要获取事件对象，那么需要在函数调用的时候，手动的传入事件对象 $event
+                    console.log(e);
+                },
+                // plusplus(){
+                //     this.num ++;
+                // }
+            }
+        })
+
+
+    </script>
+</body>
+</html>

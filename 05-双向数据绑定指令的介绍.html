@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="msg">
+        <span>{{msg}}</span>
+
+        <input type="text" v-model="person.name">
+        <input type="text" v-model="person.age">
+        <input type="text" v-model="person.gender">
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+
+        //1. 单向数据绑定 （一般用在展示性标签）
+            //当发生绑定关系之后，数据只要改变，元素中的内容就会发生变化，但是元素中的内容变化，并不会影响到数据
+
+        //2. 双向数据绑定 （一般用在表单元素中）
+            //数据和元素的绑定关系是双向的，也就意味着，只要数据变化，元素就会变化，元素中的内容发生变换，数据也会随之变化
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: "123",
+                person: {
+                    name: "张志潮",
+                    age: 18,
+                    gender: "!male"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

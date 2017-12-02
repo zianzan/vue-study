@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <span>
+            我是张志潮，我喜欢下面这些内容:
+        </span>
+        
+        <ul>
+            <!-- <li v-for="course in courses">
+                {{course}}
+            </li> -->
+
+            <li v-for="(course, index) in courses" v-bind:key="index">
+                {{index}}=>{{course}}
+            </li>
+
+            <!-- <li v-for="i in 10">
+
+
+
+            
+                {{i}}
+            </li> -->
+
+            <!-- <li v-for="i in 'Hello World'">
+                {{i}}
+            </li> -->
+
+            <!-- <li v-for="(item, key, index) in person">
+              {{index}} {{key}} => {{item}}
+            </li> -->
+        </ul>
+
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                courses: [
+                    "瑜伽",
+                    "啦啦操",
+                    "广场舞",
+                    "肚皮舞",
+                    "美甲"
+                ],
+                person: {
+                    name: "张志潮",
+                    age: 19,
+                    gender: "male"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

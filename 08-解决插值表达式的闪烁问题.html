@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div v-cloak>{{msg}}</div>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        //可以给元素加上v-cloak指令，配合css样式来解决闪烁问题
+        
+        //原理： 在vue.js加载完毕之前，由于元素有v-cloak指令的存在，css样式生效，将元素隐藏起来，当vue.js加载完毕，会自动将所有元素上的v-cloak指令移除，那么css样式失效，元素就展示出来，但是这个时候插值表达式已经被解析完毕了！
+
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: "解决插值表达式的闪烁问题"
+            }
+        })
+    </script>
+</body>
+
+</html>

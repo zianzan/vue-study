@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .outer{
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+        }
+
+        .inner{
+            width: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="outer" @click.once="outerClick">
+            <div class="inner" @click="innerClick">
+                <a href="http://itcast.cn" @click.prevent.stop="aClick">传智播客</a>
+            </div>
+        </div>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+
+        //在注册事件的时候，可以通过.来加事件修饰符
+        //语法：   v-on:事件类型.事件修饰符="表达式"
+        //语法：   @事件类型.事件修饰符="表达式"
+
+        //修饰符：
+        //.stop    用来阻止事件冒泡的！
+        //.prevent 用来阻止浏览器默认行为
+        //.capture 用来将事件设置为捕获阶段触发
+        //.self    只有元素本身能够触发该事件  事件冒泡等行为无法触发
+        //.once    事件只会被触发一次
+
+        var vm = new Vue({
+            el: "#app",
+            data: {
+            },
+            methods: {
+                innerClick(e){
+                    alert("内部div被点击了");
+                    // e.stopPropagation();
+                },
+                outerClick(){
+                    alert("外部div被点击了");
+                },
+                aClick(e){
+                    alert("连接被点击了");
+                    // e.preventDefault();
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

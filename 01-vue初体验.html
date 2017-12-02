@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 写一个元素，这个元素就是vue将来要管理的内容 -->
+    <div id="app">
+        {{message}}
+    </div>
+
+    <!-- 1. 引入vue.js文件 -->
+    <script src="./node_modules/vue/dist/vue.js"></script>
+
+    <!-- 3 写js代码，声明vue对象 -->
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                message: "Hello Vue"
+            }
+        });
+        // var obj = {
+        //     message: "Hello dijijishu"
+        // }
+    </script>
+</body>
+</html>

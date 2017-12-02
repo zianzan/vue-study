@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="isShow">{{msg}}</div>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                isShow: false,
+                msg: "我是一个可以隐身的元素"
+            }
+        })
+
+        //v-show
+            //v-show可以根据条件是否为true，给元素添加display:none的css样式，控制元素的显示与隐藏
+
+        //v-if
+            //v-if可以根据条件是否为true, 控制元素的显示与隐藏，但是并不是通过css样式来实现的，如果条件为false，当前元素会直接从html中移除！  如果在元素中还有其他的指令，那么这个指令将不会被解析
+
+        //如果切换显示特别频繁，则不推荐使用v-if，因为每次在条件变为true的时候，v-if所在的元素需要被重新创建，并且其中的指令，也要被重新解析，比较耗性能！
+    </script>
+</body>
+
+</html>

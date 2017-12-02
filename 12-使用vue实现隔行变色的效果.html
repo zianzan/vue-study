@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            border: 1px solid pink;
+        }
+
+        table td,th{
+            border: 1px solid pink;
+            width: 150px;
+            text-align: center;
+        }
+
+        .bggreen{
+            background-color: green;
+        }
+
+        .bgyellow{
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <table>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+            </tr>
+            <!-- <tr v-for="(item, index) in students" :key="index" :class="index % 2 == 0 ?'bggreen':'bgyellow'">
+                <td>{{item.name}}</td>
+                <td>{{item.age}}</td>
+            </tr> -->
+
+            <!-- <tr v-for="(item, index) in students" :key="index" :class="{bggreen: index % 2== 0, bgyellow:index % 2 == 1}">
+                    <td>{{item.name}}</td>
+                    <td>{{item.age}}</td>
+                </tr> -->
+
+            <!-- <tr v-for="(item, index) in students" :key="index" :class="{bggreen: item.age > 18, bgyellow:item.age <= 18}">
+                    <td>{{item.name}}</td>
+                    <td>{{item.age}}</td>
+                </tr> -->
+        </table>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                students: [
+                    {name: "许好亚", age: 40},
+                    {name: "张志潮", age: 20},
+                    {name: "胡清流", age: NaN},
+                    {name: "姜伟", age: 25},
+                    {name: "蒋鹏", age: 7}
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

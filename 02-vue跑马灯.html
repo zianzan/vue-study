@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <p>{{message}}</p>
+        <button v-on:click="start">启动</button>
+        <button v-on:click="stop">停止</button>
+    </div>
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+
+    <script>
+        //在vue或者其他的流行框架中，想要操作页面元素的时候
+        //注意： 1. 忘掉dom操作
+        //      2. 想一想 页面的元素 是和哪个数据相关的，那么改变这个数据，就能让页面上的元素自动变化了！
+
+
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                message: "上海黑马14期是我带过最好的班级",
+                timer: 0
+            },
+            methods: {
+                start: function(){
+                    //在vm对象的methods中，如果想要访问数据，那么直接使用this就可以访问到
+
+                    // this.message
+
+                    var that = this;
+                    clearInterval(this.timer);
+                    this.timer = setInterval(function(){
+                        that.message = that.message.slice(1) + that.message.slice(0, 1);
+                    }, 200)
+                },
+                stop: function(){
+                    clearInterval(this.timer);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
